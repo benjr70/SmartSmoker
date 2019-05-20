@@ -4,6 +4,8 @@ import serial
 import re
 import os
 
+os.system("sudo systemctl start nodered.service")
+
 ser =  serial.Serial( port = '/dev/ttyUSB0',
                       baudrate = 115200,
                       parity = serial.PARITY_NONE,
