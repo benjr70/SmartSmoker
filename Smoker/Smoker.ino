@@ -31,6 +31,6 @@ Temperature2 = (Temperature2 * 9.0/5.0)+32;
 Serial.print(Temperature2);
 Serial.println("");
 
-delay(500);
+delay(2000);
 
 }
