@@ -19,6 +19,8 @@ void setup() {
   
 }
 
+int count = 0;
+
 void loop() 
 {
 
@@ -32,18 +34,26 @@ void loop()
   double Temperature1 = (vout1 - 1.247) / 0.005;
   Temperature1 -= 20;
   Temperature1 = (Temperature1 * 9.0/5.0)+32;
-  Serial.print(Temperature1);
-  Serial.print(", ");
+  
+  
   lcd.print("Meat:    ");
   lcd.print(Temperature1);
   lcd.setCursor(0,1);
   double Temperature2 = (vout2 - 1.247) / 0.005;
   Temperature2 -= 20;
   Temperature2 = (Temperature2 * 9.0/5.0)+32;
-  Serial.print(Temperature2);
-  Serial.println("");
+
   lcd.print("Chamber: ");
   lcd.print(Temperature2);
-  delay(2000);
+  delay(1000); 
+  
+  count ++;
+  if(count >= 10){
+    Serial.print(Temperature1);
+    Serial.print(", ");
+    Serial.print(Temperature2);
+    Serial.println("");
+    count = 0;
+  }
 
 }
